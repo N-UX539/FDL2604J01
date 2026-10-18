@@ -18,11 +18,11 @@ const validators = [
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
 loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
   if (password.value === "") {
+    e.preventDefault();
     alert("Password can't be empty!");
   } else if (!passwordRegex.test(password.value)) {
+    e.preventDefault();
     alert("Invalid Password! Please follow all requirements.");
   } else {
     alert("Success!");
