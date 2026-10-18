@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="Shortcut Icon" href="./Images/JavaScript.webp" />
+    <title>Input</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form id="acc-info" class="acc-info">
+      <div class="pass-input">
+        <label for="user-password">Password</label>
+        <input
+          id="user-password"
+          class="user-password"
+          type="password"
+          placeholder=""
+          spellcheck="false"
+        />
+        <a id="eyeIcon" class="eyeIcon">
+          <i class="fa-regular fa-eye-slash"></i>
+        </a>
+      </div>
+      <button type="submit" id="Sumbit" class="submit-btn">Submit</button>
+
+      <div class="valid-pass no-select">
+        <span class="valid-pass-rule">At least one uppercase letter (A-Z)</span>
+        <span class="valid-pass-rule">At least one lowercase letter (a-z)</span>
+        <span class="valid-pass-rule">At least one number (0-9)</span>
+        <span class="valid-pass-rule">At least one symbol (e.g., ! @ # $ % ^ & *)</span>
+        <span class="valid-pass-rule">Minimum 8-12 Characters</span>
+      </div>
+    </form>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

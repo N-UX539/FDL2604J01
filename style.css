@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-family: "JetBrains Mono";
+}
+body {
+  font-family: var(--font-family);
+  height: 100dvh;
+  /* background: linear-gradient(135deg, #0b001a 0%, #020005 50%, #001219 100%); */
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(35, 2, 53, 0.25) 0%,
+      rgba(35, 2, 53, 0) 60%
+    ),
+    radial-gradient(
+      circle at 85% 55%,
+      rgba(1, 31, 38, 0.25) 0%,
+      rgba(1, 31, 38, 0) 65%
+    ),
+    linear-gradient(135deg, #0b001a 0%, #020005 50%, #001219 100%);
+  background-attachment: fixed;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &::selection {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+  }
+  &::-moz-selection {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+  }
+}
+/* root code ends */
+
+.submit-btn {
+  margin: 15px 0 5px 0;
+  background-color: #ffff;
+  border: none;
+  border-radius: 50px;
+  padding-inline: 50px;
+  width: 100%;
+  height: clamp(40px, 5vw, 50px);
+  font-weight: 700;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-family: var(--font-family);
+  letter-spacing: 0.15em;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* Universal Code */
+
+form.acc-info {
+  font-family: var(--font-family);
+  color: #ffff;
+  width: clamp(300px, 45vw, 600px);
+
+  label {
+    position: absolute;
+    left: 26.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: clamp(14px, 1.5vw, 17px);
+    word-spacing: -0.2em;
+    letter-spacing: 0.15em;
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+  label.active {
+    padding-inline: 7px;
+    top: 0;
+    font-size: clamp(10px, 1.5vw, 15px);
+    background-color: #0a0015;
+  }
+}
+
+.user-password {
+  height: clamp(50px, 5vw, 60px);
+  background-color: transparent;
+  width: 100%;
+  border-radius: 50px;
+  border: #ffff solid 2px;
+  padding-inline: 25px;
+  padding-inline-end: 60px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: clamp(15px, 1.5vw, 17px);
+  word-spacing: -0.2em;
+  letter-spacing: 0.15em;
+  caret-shape: block;
+}
+
+.pass-input {
+  display: block;
+  position: relative;
+}
+
+a.eyeIcon {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: clamp(14px, 1.5vw, 19px);
+  color: #ffff;
+}
+
+.valid-pass-rule {
+  position: relative;
+  margin-top: 8px;
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  padding-left: 20px;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+  /* display: none; */
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    content: "";
+    height: 7px;
+    width: 7px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease;
+  }
+}
+/* Validation Dynamic States */
+.valid-pass-rule.valid {
+  color: #27ae60;
+  text-shadow: 0 0 8px rgba(46, 204, 113, 0.4);
+  
+  &::before {
+    background-color: #27ae60;
+  }
+}
