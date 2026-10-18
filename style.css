@@ -42,17 +42,17 @@ body {
 /* root code ends */
 
 .submit-btn {
-  margin: 15px 0 5px 0;
+  margin: 10px 0 5px 0;
   background-color: #ffff;
   border: none;
   border-radius: 50px;
   padding-inline: 50px;
   width: 100%;
-  height: clamp(40px, 5vw, 50px);
-  font-weight: 700;
-  font-size: clamp(15px, 1.5vw, 18px);
+  height: 47px;
+  font-weight: 800;
+  font-size: clamp(14px, 1.5vw, 18px);
   font-family: var(--font-family);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
 }
 
 .no-select {
@@ -123,9 +123,9 @@ a.eyeIcon {
 
 .valid-pass-rule {
   position: relative;
-  margin-top: 8px;
+  margin-top: 7px;
   display: block;
-  font-size: 14px;
+  font-size: clamp(11px, 1.5vw, 14px);
   color: rgba(255, 255, 255, 0.5);
   padding-left: 20px;
   margin-left: 25px;
@@ -138,8 +138,8 @@ a.eyeIcon {
     left: 0;
     transform: translateY(-50%);
     content: "";
-    height: 7px;
-    width: 7px;
+    height: clamp(5px, 1vw, 7px);
+    width: clamp(5px, 1vw, 7px);
     border-radius: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     transition: background-color 0.3s ease;
