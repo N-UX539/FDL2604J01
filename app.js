@@ -1,3 +1,38 @@
+//
+window.addEventListener("mousemove", (e) => {
+  const coursor = document.querySelector(".coursor");
+
+  coursor.style.top = e.clientY + "px";
+  coursor.style.left = e.clientX + "px";
+});
+
+//
+const input = document.querySelector("input.counter");
+
+if (input) {
+  if (!input.value) input.value = "1";
+
+  document
+    .querySelectorAll(".prdct-counter .increment, .prdct-counter .decrement")
+    .forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let val = parseInt(input.value) || 1;
+        input.value = btn.classList.contains("increment")
+          ? val + 1
+          : Math.max(1, val - 1);
+      });
+    });
+
+  input.addEventListener("input", () => {
+    input.value = input.value.replace(/\D/g, "");
+  });
+
+  input.addEventListener("blur", () => {
+    if (!input.value || parseInt(input.value) < 1) input.value = "1";
+  });
+}
+
 const password = document.getElementById("user-password");
 const toggleBtn = document.getElementById("eyeIcon");
 const eyeIcon = document.querySelector(".eyeIcon i");
