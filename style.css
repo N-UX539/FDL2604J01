@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 * {
+  font-family: var(--font-family);
   padding: 0;
   margin: 0;
   outline: 0;
@@ -29,17 +30,41 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-
-  &::selection {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #ffffff;
-  }
-  &::-moz-selection {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #ffffff;
-  }
+  overflow: hidden;
+  flex-direction: column;
+  gap: 10px;
+}
+::selection {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
 }
 /* root code ends */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.coursor {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  top: 0;
+  transform: translate(-35%, -27%);
+  transition: 0.15ms ease;
+  background: transparent;
+}
 
 .submit-btn {
   margin: 10px 0 5px 0;
@@ -48,16 +73,33 @@ body {
   border-radius: 50px;
   padding-inline: 50px;
   width: 100%;
-  height: 47px;
-  font-weight: 800;
+  height: clamp(45px, 5vw, 50px);
+  font-weight: 700;
   font-size: clamp(14px, 1.5vw, 18px);
   font-family: var(--font-family);
   letter-spacing: 0.1em;
 }
 
-.no-select {
+.no-select,
+button {
   -webkit-user-select: none;
   user-select: none;
+}
+
+input {
+  height: clamp(50px, 5vw, 60px);
+  background-color: transparent;
+  width: 100%;
+  border-radius: 50px;
+  border: #ffff solid 2px;
+  padding-inline: 25px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: clamp(15px, 1.5vw, 17px);
+  word-spacing: -0.2em;
+  letter-spacing: 0.15em;
+  caret-shape: block;
 }
 /* Universal Code */
 
@@ -88,21 +130,8 @@ form.acc-info {
   }
 }
 
-.user-password {
-  height: clamp(50px, 5vw, 60px);
-  background-color: transparent;
-  width: 100%;
-  border-radius: 50px;
-  border: #ffff solid 2px;
-  padding-inline: 25px;
+input.user-password {
   padding-inline-end: 60px;
-  color: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: clamp(15px, 1.5vw, 17px);
-  word-spacing: -0.2em;
-  letter-spacing: 0.15em;
-  caret-shape: block;
 }
 
 .pass-input {
@@ -130,7 +159,6 @@ a.eyeIcon {
   padding-left: 20px;
   margin-left: 25px;
   transition: color 0.3s ease;
-  /* display: none; */
 
   &::before {
     position: absolute;
@@ -149,8 +177,36 @@ a.eyeIcon {
 .valid-pass-rule.valid {
   color: #27ae60;
   text-shadow: 0 0 8px rgba(46, 204, 113, 0.4);
-  
+
   &::before {
     background-color: #27ae60;
   }
+}
+
+form.prdct-counter {
+  position: relative;
+  width: 100%;
+  max-width: clamp(300px, 45vw, 600px);
+}
+input.counter {
+  padding-inline: 65px;
+}
+form.prdct-counter .increment,
+form.prdct-counter .decrement {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  color: #ffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 50%;
+}
+.prdct-counter .increment {
+  right: 15px;
+}
+.prdct-counter .decrement {
+  left: 15px;
 }
