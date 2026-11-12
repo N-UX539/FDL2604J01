@@ -11,8 +11,10 @@
   --font-family: "JetBrains Mono";
 }
 body {
+  position: relative;
   font-family: var(--font-family);
-  height: 100dvh;
+  height: 135dvh;
+  scroll-behavior: smooth;
   /* background: linear-gradient(135deg, #0b001a 0%, #020005 50%, #001219 100%); */
   background:
     radial-gradient(
@@ -30,9 +32,8 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   flex-direction: column;
-  gap: 10px;
+  gap: 100px;
 }
 ::selection {
   background-color: rgba(255, 255, 255, 0.5);
@@ -41,6 +42,9 @@ body {
 ::-moz-selection {
   background-color: rgba(255, 255, 255, 0.5);
   color: #ffffff;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 /* root code ends */
 
@@ -183,6 +187,11 @@ a.eyeIcon {
   }
 }
 
+.prdct-menu {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
 form.prdct-counter {
   position: relative;
   width: 100%;
@@ -209,4 +218,109 @@ form.prdct-counter .decrement {
 }
 .prdct-counter .decrement {
   left: 15px;
+}
+
+.gallery {
+  position: relative;
+  max-width: 1650px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin-inline: auto;
+}
+
+.protrait-gallery {
+  height: 610px;
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  border-radius: 15px;
+}
+.protrait-gallery:hover .gallery-cnt {
+  animation-play-state: paused;
+}
+
+.gallery-cnt,
+.popup-img {
+  height: 600px;
+  width: 300px;
+  flex: 0 0 415px;
+  border-radius: 15px;
+  overflow: hidden;
+  animation: streamRight 40s ease-in-out infinite alternate;
+}
+@keyframes streamRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-350%);
+  }
+}
+.gallery-cnt:hover {
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 4px 12px;
+}
+
+.gallery-cnt img,
+.popup-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.popup {
+  height: 100dvh;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(15px);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms ease;
+}
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-img {
+  transition: 700ms ease;
+  animation: none;
+  transform: scale(0);
+}
+.popup.active .popup-img {
+  transform: scale(100%);
+}
+
+.popup button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #ffff;
+  background-color: transparent;
+  color: #ffff;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  backdrop-filter: blur(10px);
+  transition: 300ms ease;
+}
+.popup button.right {
+  right: 35%;
+}
+.popup button.left {
+  left: 35%;
+}
+.popup button:hover {
+  transform: scale(1.1) translateY(-50%);
 }

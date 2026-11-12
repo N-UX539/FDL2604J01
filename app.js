@@ -1,10 +1,10 @@
 //
-window.addEventListener("mousemove", (e) => {
-  const coursor = document.querySelector(".coursor");
+// window.addEventListener("mousemove", (e) => {
+//   const coursor = document.querySelector(".coursor");
 
-  coursor.style.top = e.clientY + "px";
-  coursor.style.left = e.clientX + "px";
-});
+//   coursor.style.top = e.clientY + "px";
+//   coursor.style.left = e.clientX + "px";
+// });
 
 //
 const input = document.querySelector("input.counter");
@@ -109,3 +109,35 @@ toggleBtn.addEventListener("mousedown", (e) => {
 password.addEventListener("focus", updatePasswordValidationUI);
 password.addEventListener("blur", updatePasswordValidationUI);
 password.addEventListener("input", updatePasswordValidationUI);
+
+const galleryCnt = document.querySelectorAll(".gallery-cnt");
+const popup = document.querySelector(".popup");
+const popupImg = popup.querySelector(".popup-img img");
+const galleryControls = popup.querySelectorAll("button");
+
+popup.addEventListener("click", (e) => {
+  if (e.target.classList.contains("popup")) {
+    popup.classList.remove("active");
+  }
+});
+
+let currentImg = 0;
+
+galleryCnt.forEach((cnt, i) => {
+  cnt.addEventListener("click", (e) => {
+    currentImg = i;
+    popup.classList.add("active");
+    popupImg.src = e.target.src;
+  });
+});
+
+galleryControls.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.classList.contains("right") && currentImg < galleryCnt.length) {
+      currentImg++;
+    } else if (button.classList.contains("left") && currentImg > 0) {
+      currentImg--;
+    }
+    popupImg.src = galleryCnt[currentImg].querySelector("img").src;
+  });
+});
