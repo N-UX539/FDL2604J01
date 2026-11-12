@@ -133,11 +133,20 @@ galleryCnt.forEach((cnt, i) => {
 
 galleryControls.forEach((button) => {
   button.addEventListener("click", () => {
-    if (button.classList.contains("right") && currentImg < galleryCnt.length) {
-      currentImg++;
-    } else if (button.classList.contains("left") && currentImg > 0) {
-      currentImg--;
+    if (button.classList.contains("right")) {
+      if (currentImg < galleryCnt.length - 1) {
+        currentImg++;
+      } else {
+        currentImg = 0;
+      }
+    } else if (button.classList.contains("left")) {
+      if (currentImg > 0) {
+        currentImg--;
+      } else {
+        currentImg = galleryCnt.length - 1;
+      }
     }
+
     popupImg.src = galleryCnt[currentImg].querySelector("img").src;
   });
 });
